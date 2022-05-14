@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize')
 
 const nameDatabase = 'sapucar';
 const userDatabase = 'root';
-const passwordDatabase = '1234';
+const passwordDatabase = '';
 const host = 'localhost';
 const dialect = 'mysql';
 
