@@ -1,6 +1,7 @@
 const express = require('express');
 const sequelize = require('../database/connection');
 const cors = require('cors');
+const Cliente = require('./cliente');
 
 class Server
 {
@@ -13,7 +14,9 @@ class Server
         this.paths = {
             nacionalidad: '/api/nacionalidad',
             vehiculo: '/api/vehiculo',
-            usuarios: '/api/usuarios'
+            usuarios: '/api/usuarios',
+            cliente: '/api/cliente'
+            
         }
         this.middlewares();
         this.routes();
@@ -44,8 +47,9 @@ class Server
         this.app.use(this.paths.nacionalidad, require('../routes/nacionalidad.routes'));
         this.app.use(this.paths.vehiculo, require('../routes/vehiculo.routes'));
         this.app.use(this.paths.usuarios, require('../routes/usuarios.routes'));
+        this.app.use(this.paths.cliente, require('../routes/cliente.routes'));
     }
 
 }
 
-module.exports = Server
+module.exports = Server;
