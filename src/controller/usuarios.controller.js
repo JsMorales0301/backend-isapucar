@@ -16,7 +16,7 @@ const postUsuarios = async(req = request, res = response) => {
 }
 
 const getUserById = async(req = request, res = response) => {
-    
+
     const { id_usuario } = req.params;
     
     const usuario = await Usuarios.findByPk(id_usuario);
@@ -24,10 +24,7 @@ const getUserById = async(req = request, res = response) => {
     res.json({
         usuario
     });
-
 }
-
-
 
 module.exports = {
     postUsuarios,
