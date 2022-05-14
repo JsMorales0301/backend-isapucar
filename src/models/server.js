@@ -15,8 +15,8 @@ class Server
             nacionalidad: '/api/nacionalidad',
             vehiculo: '/api/vehiculo',
             usuarios: '/api/usuarios',
-            cliente: '/api/cliente'
-            
+            cliente: '/api/cliente',
+            auth: '/api/auth'
         }
         this.middlewares();
         this.routes();
@@ -48,6 +48,7 @@ class Server
         this.app.use(this.paths.vehiculo, require('../routes/vehiculo.routes'));
         this.app.use(this.paths.usuarios, require('../routes/usuarios.routes'));
         this.app.use(this.paths.cliente, require('../routes/cliente.routes'));
+        this.app.use(this.paths.auth, require('../routes/auth.routes'));
     }
 
 }
