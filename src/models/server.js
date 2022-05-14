@@ -1,4 +1,5 @@
 const express = require('express');
+const sequelize = require('../database/connection');
 
 class Server
 {
@@ -6,6 +7,7 @@ class Server
     constructor()
     {
         this.app = express();
+        this.dbConnection();
         this.port = 5000;
         this.paths = {
             nacionalidad: '/api/nacionalidad'
@@ -23,6 +25,15 @@ class Server
 
     middlewares(){
         this.app.use(express.json());
+    }
+
+    async dbConnection(){
+        try {
+            await sequelize.authenticate();
+            console.log('Connection has been established successfully.');
+          } catch (error) {
+            console.error('Unable to connect to the database:', error);
+          }
     }
 
     routes(){
