@@ -12,7 +12,8 @@ class Server
         this.port = 5000;
         this.paths = {
             nacionalidad: '/api/nacionalidad',
-            vehiculo: '/api/vehiculo'
+            vehiculo: '/api/vehiculo',
+            usuarios: '/api/usuarios'
         }
         this.middlewares();
         this.routes();
@@ -42,6 +43,7 @@ class Server
     routes(){
         this.app.use(this.paths.nacionalidad, require('../routes/nacionalidad.routes'));
         this.app.use(this.paths.vehiculo, require('../routes/vehiculo.routes'));
+        this.app.use(this.paths.usuarios, require('../routes/usuarios.routes'));
     }
 
 }
