@@ -13,7 +13,8 @@ class Server
         this.paths = {
             nacionalidad: '/api/nacionalidad',
             vehiculo: '/api/vehiculo',
-            usuarios: '/api/usuarios'
+            usuarios: '/api/usuarios',
+            auth: '/api/auth'
         }
         this.middlewares();
         this.routes();
@@ -44,6 +45,7 @@ class Server
         this.app.use(this.paths.nacionalidad, require('../routes/nacionalidad.routes'));
         this.app.use(this.paths.vehiculo, require('../routes/vehiculo.routes'));
         this.app.use(this.paths.usuarios, require('../routes/usuarios.routes'));
+        this.app.use(this.paths.auth, require('../routes/auth.routes'));
     }
 
 }
